@@ -1,0 +1,23 @@
+body{
+    opacity:0;
+    background: #f4f7f9;
+}
+/*
+.modal{
+    display:none;
+}
+*/
+.tagline{
+    margin-top:-5%;
+    color: #2a0756;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.review{
+    border: 8px solid #888888;
+    border-right: 3px;
+    border-left: 3px;
+}
+.user_review{
+    background: transparent;
+    border: none;
+}
