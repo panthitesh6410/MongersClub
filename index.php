@@ -104,6 +104,16 @@
     <h2><b style="font-family: Stencil">Recently Added Products :</b></h2>
     <br><br>
 
+    <form action="" method="POST">
+    <select name="sort_products" id="">
+      <option value="" selected disabled>Search products by Tag </option>
+      <option value="sale">for Sale</option>
+      <option value="exchange">for Exchange</option>
+      <option value="donate">for Dontation</option>
+    </select>
+    <button class="btn btn-dark" name="show_products">show products</button>
+    </form>
+
 <?php
   $con = mysqli_connect("localhost", "root", "", "minor2");
   $query = "select * from products order by product_id desc";
@@ -137,8 +147,25 @@
       </div>
 </div><br><br>
       ";
-
   }
+
+  // search products on basis of tags (sale, exchange, donate) :
+
+  /*  
+    if(isset($_POST['show_products'] == "sale")
+    {
+      echo "<script>alert('products for sale');</script>";
+    }
+    if($_POST['sort_products'] == "donate")
+    {
+      echo "<script>alert('products for donate');</script>";
+    }
+    if($_POST['sort_products'] == "exchange")
+    {
+      echo "<script>alert('products for exchange');</script>";  
+    }
+  */
+
 ?>
 
 <br><br>
