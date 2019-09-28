@@ -77,7 +77,7 @@
           <h3 class="alert alert-dark mb-5">Products You Share</h3>
             
         <?php
-                $show_pro = "select * from products where product_owner_id = '$userID'";
+                $show_pro = "select * from products where product_owner_id = '$userID' order by product_id desc";
                 $run_show_pro = mysqli_query($con, $show_pro);
                 
                 while($pro_data = mysqli_fetch_array($run_show_pro))

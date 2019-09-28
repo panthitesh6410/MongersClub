@@ -106,7 +106,7 @@
 
 <?php
   $con = mysqli_connect("localhost", "root", "", "minor2");
-  $query = "select * from products";
+  $query = "select * from products order by product_id desc";
   $run_query = mysqli_query($con, $query);
   while($data = mysqli_fetch_array($run_query))
   {

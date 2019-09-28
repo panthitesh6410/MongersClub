@@ -48,7 +48,7 @@
 <div class="container user_reviews mt-4">
         <?php
           $con = mysqli_connect("localhost", "root", "", "minor2");
-            $review_query = "select * from reviews";
+            $review_query = "select * from reviews order by review_id desc";
             $run_review_query = mysqli_query($con, $review_query);
             while($show_data = mysqli_fetch_array($run_review_query))
             {
