@@ -2,6 +2,11 @@ body{
     opacity:0;
     background: #f4f7f9;
 }
+.jumbo{
+    background-image:url("images/edu1.jpg");
+    background-size: cover;
+    height:900px;
+}
 /*
 .modal{
     display:none;

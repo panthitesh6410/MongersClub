@@ -60,7 +60,7 @@
      
 
 
-    <div class="jumbotron jumbotron-fluid text-center bg-light mb-0">
+    <div class="jumbotron jumbotron-fluid text-center bg-light mb-0 jumbo">
         <img class="logo mb-1" src="images/logo.png" alt="logo" height="350" width="700">
         <p class="tagline ml-5">The foremost source for everything in student welfare</p>
     </div>
@@ -73,7 +73,7 @@
           </div>
 
     
-    <div class="container">
+    <div class="container next">
         <div class="row">
             <div class="col-sm-4">
                 <div class="card text-center" style="border:none; background:transparent;">
@@ -104,14 +104,14 @@
     <h2><b style="font-family: Stencil">Recently Added Products :</b></h2>
     <br><br>
 
-    <form action="" method="POST">
-    <select name="sort_products" id="">
-      <option value="" selected disabled>Search products by Tag </option>
-      <option value="sale">for Sale</option>
-      <option value="exchange">for Exchange</option>
-      <option value="donate">for Dontation</option>
-    </select>
-    <button class="btn btn-dark" name="show_products">show products</button>
+    <form action="" method="POST" style="position:absolute;left:72%;top:187%;">
+      <select name="sort_products" id="" class="alert alert-success" style="padding:6px;border:2px solid green;border-radius:5px;">
+        <option value="" selected disabled>Search products by Tag </option>
+        <option value="sale">for Sale</option>
+        <option value="exchange">for Exchange</option>
+        <option value="donate">for Dontation</option>
+      </select>
+      <button class="btn btn-dark mb-2" name="show_products">show products</button>
     </form>
 
 <?php
@@ -148,24 +148,29 @@
 </div><br><br>
       ";
   }
+?>
 
+<?php
   // search products on basis of tags (sale, exchange, donate) :
 
-  /*  
-    if(isset($_POST['show_products'] == "sale")
+    if(isset($_POST['show_products']))
     {
-      echo "<script>alert('products for sale');</script>";
+        if($_POST['sort_products'] == "sale")
+        {
+            echo "<script>alert('Products having Sale tag');</script>";
+        }
+        if($_POST['sort_products'] == "exchange")
+        {
+            echo "<script>alert('Products having Exchange tag');</script>";
+        }
+        if($_POST['sort_products'] == "donate")
+        {
+            echo "<script>alert('Products having Donate tag');</script>";
+        }
+        else{
+          echo "<script>alert('Select an option please !');</script>";
+        }
     }
-    if($_POST['sort_products'] == "donate")
-    {
-      echo "<script>alert('products for donate');</script>";
-    }
-    if($_POST['sort_products'] == "exchange")
-    {
-      echo "<script>alert('products for exchange');</script>";  
-    }
-  */
-
 ?>
 
 <br><br>
