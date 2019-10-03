@@ -107,6 +107,7 @@
     <form action="" method="POST" style="position:absolute;left:72%;top:187%;">
       <select name="sort_products" id="" class="alert alert-success" style="padding:6px;border:2px solid green;border-radius:5px;">
         <option value="" selected disabled>Search products by Tag </option>
+        <option value="all">All Products</option>
         <option value="sale">for Sale</option>
         <option value="exchange">for Exchange</option>
         <option value="donate">for Dontation</option>
@@ -114,8 +115,13 @@
       <button class="btn btn-dark mb-2" name="show_products">show products</button>
     </form>
 
+
 <?php
-  $con = mysqli_connect("localhost", "root", "", "minor2");
+
+$con = mysqli_connect("localhost", "root", "", "minor2");
+
+if(!isset($_POST['show_products']))
+{
   $query = "select * from products order by product_id desc";
   $run_query = mysqli_query($con, $query);
   while($data = mysqli_fetch_array($run_query))
@@ -148,29 +154,154 @@
 </div><br><br>
       ";
   }
-?>
+}
 
-<?php
-  // search products on basis of tags (sale, exchange, donate) :
+// search products on basis of tags (sale, exchange, donate) :
 
-    if(isset($_POST['show_products']))
+if(isset($_POST['show_products']))
     {
         if($_POST['sort_products'] == "sale")
         {
-            echo "<script>alert('Products having Sale tag');</script>";
+          $sale_query = "select * from products where product_mode = 'Sale'";
+          $run_sale_query = mysqli_query($con, $sale_query);
+          while($data = mysqli_fetch_array($run_sale_query))
+          {
+              $show_product_id = $data['product_id'];
+              $show_product_name = $data['product_name'];
+              $show_product_image = $data['product_image'];
+              $show_product__description = $data['product_description'];
+              $show_product_time = $data['product_time'];
+              $show_product_mode = $data['product_mode'];
+              $show_product_owner_id = $data['product_owner_id'];
+          
+              echo "
+              <div class='card mb-3' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+              <div class='row no-gutters'>
+                <div class='col-md-4'>
+                  <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
+                </div>
+                <div class='col-md-8'>
+                  <div class='card-body text-center'>
+                    <h5 class='card-title'><b>$show_product_name</b></h5>
+                    <p class='card-text'>
+                      <div class='badge badge-danger mt-3'><h4>$show_product_mode</h4></div>
+                      <a href='product_details.php?product_id=$show_product_id' class='nav-link mt-3' style='font-size:20px;font-family:comic sans MS;'>View Product</a>
+                    </p>
+                    <p class='card-text'><small class='text-muted'>uploaded on $show_product_time</small></p> 
+                  </div>
+                </div>
+              </div>
+        </div><br><br>
+              ";
+          }
         }
         if($_POST['sort_products'] == "exchange")
         {
-            echo "<script>alert('Products having Exchange tag');</script>";
+          $exchange_query = "select * from products where product_mode = 'Exchange'";
+          $run_exchange_query = mysqli_query($con, $exchange_query);
+          while($data = mysqli_fetch_array($run_exchange_query))
+          {
+              $show_product_id = $data['product_id'];
+              $show_product_name = $data['product_name'];
+              $show_product_image = $data['product_image'];
+              $show_product__description = $data['product_description'];
+              $show_product_time = $data['product_time'];
+              $show_product_mode = $data['product_mode'];
+              $show_product_owner_id = $data['product_owner_id'];
+          
+              echo "
+              <div class='card mb-3' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+              <div class='row no-gutters'>
+                <div class='col-md-4'>
+                  <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
+                </div>
+                <div class='col-md-8'>
+                  <div class='card-body text-center'>
+                    <h5 class='card-title'><b>$show_product_name</b></h5>
+                    <p class='card-text'>
+                      <div class='badge badge-danger mt-3'><h4>$show_product_mode</h4></div>
+                      <a href='product_details.php?product_id=$show_product_id' class='nav-link mt-3' style='font-size:20px;font-family:comic sans MS;'>View Product</a>
+                    </p>
+                    <p class='card-text'><small class='text-muted'>uploaded on $show_product_time</small></p> 
+                  </div>
+                </div>
+              </div>
+        </div><br><br>
+              ";
+          }
         }
         if($_POST['sort_products'] == "donate")
         {
-            echo "<script>alert('Products having Donate tag');</script>";
+          $donate_query = "select * from products where product_mode = 'Donate'";
+          $run_donate_query = mysqli_query($con, $donate_query);
+          while($data = mysqli_fetch_array($run_donate_query))
+          {
+              $show_product_id = $data['product_id'];
+              $show_product_name = $data['product_name'];
+              $show_product_image = $data['product_image'];
+              $show_product__description = $data['product_description'];
+              $show_product_time = $data['product_time'];
+              $show_product_mode = $data['product_mode'];
+              $show_product_owner_id = $data['product_owner_id'];
+          
+              echo "
+              <div class='card mb-3' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+              <div class='row no-gutters'>
+                <div class='col-md-4'>
+                  <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
+                </div>
+                <div class='col-md-8'>
+                  <div class='card-body text-center'>
+                    <h5 class='card-title'><b>$show_product_name</b></h5>
+                    <p class='card-text'>
+                      <div class='badge badge-danger mt-3'><h4>$show_product_mode</h4></div>
+                      <a href='product_details.php?product_id=$show_product_id' class='nav-link mt-3' style='font-size:20px;font-family:comic sans MS;'>View Product</a>
+                    </p>
+                    <p class='card-text'><small class='text-muted'>uploaded on $show_product_time</small></p> 
+                  </div>
+                </div>
+              </div>
+        </div><br><br>
+              ";
+          }
         }
-        else{
-          echo "<script>alert('Select an option please !');</script>";
+        if($_POST['sort_products'] == "all")
+        {
+          $all_query = "select * from products order by product_id desc";
+          $run_all_query = mysqli_query($con, $all_query);
+          while($data = mysqli_fetch_array($run_all_query))
+          {
+              $show_product_id = $data['product_id'];
+              $show_product_name = $data['product_name'];
+              $show_product_image = $data['product_image'];
+              $show_product__description = $data['product_description'];
+              $show_product_time = $data['product_time'];
+              $show_product_mode = $data['product_mode'];
+              $show_product_owner_id = $data['product_owner_id'];
+          
+              echo "
+              <div class='card mb-3' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+              <div class='row no-gutters'>
+                <div class='col-md-4'>
+                  <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
+                </div>
+                <div class='col-md-8'>
+                  <div class='card-body text-center'>
+                    <h5 class='card-title'><b>$show_product_name</b></h5>
+                    <p class='card-text'>
+                      <div class='badge badge-danger mt-3'><h4>$show_product_mode</h4></div>
+                      <a href='product_details.php?product_id=$show_product_id' class='nav-link mt-3' style='font-size:20px;font-family:comic sans MS;'>View Product</a>
+                    </p>
+                    <p class='card-text'><small class='text-muted'>uploaded on $show_product_time</small></p> 
+                  </div>
+                </div>
+              </div>
+        </div><br><br>
+              ";
+          }
         }
     }
+
 ?>
 
 <br><br>
