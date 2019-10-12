@@ -26,3 +26,8 @@ body{
     background: transparent;
     border: none;
 }
+iframe{
+	width:1500px;
+	height:600px;
+	opacity:.5;
+}
