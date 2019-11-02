@@ -31,9 +31,9 @@
           <a class="nav-link" href="blog.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5 ">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="index.php">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
       </form>
     </div>
   </nav>
@@ -61,7 +61,7 @@
 
 
     <div class="jumbotron jumbotron-fluid text-center bg-light mb-0 jumbo">
-        <img class="logo mb-1" src="images/logo.png" alt="logo" height="350" width="700">
+        <img class="logo mb-1" src="images/logo.png" id="logo" alt="logo" height="350" width="700">
         <p class="tagline ml-5">The foremost source for everything in student welfare</p>
     </div>
     
@@ -299,7 +299,28 @@ if(isset($_POST['show_products']))
         </div><br><br>
               ";
           }
-        }
+        }  
+    }
+
+
+    
+    // search functionality :
+
+    if(isset($_POST['search_btn']))
+    {
+      $get_query = $_POST['search_area'];
+      $search_query = "select * from products where product_name LIKE '%$get_query%'";
+      $run_search_query = mysqli_query($con, $search_query);
+      $search_data = mysqli_num_rows($run_search_query);
+      if($search_data > 0)
+      { 
+        echo "<script>alert('$search_data related data found')</script>"; 
+        header("location:signup.php"); 
+      }
+      else
+      {
+        echo "<script>alert('No related data found')</script>";
+      }
     }
 
 ?>
@@ -310,7 +331,7 @@ if(isset($_POST['show_products']))
 <br><br><br>
   
     <div class="container text-center">
-        <a href="#" class="nav-link" style="color:#888888;"><h3><b>BACK-TO-TOP</b></h3></a>
+        <a href="#logo" class="nav-link" style="color:#888888;"><h3><b>BACK-TO-TOP</b></h3></a>
     </div>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117371.19519779802!2d79.89871245216426!3d23.175679611631512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981ae1a0fb6a97d%3A0x44020616bc43e3b9!2sJabalpur%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1570875662233!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
@@ -356,8 +377,11 @@ if(isset($_POST['show_products']))
     
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 </body>
+
 <script>
+      
     $(document).ready(function()
     {
 

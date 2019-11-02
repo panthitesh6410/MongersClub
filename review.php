@@ -119,7 +119,7 @@
                 $user_query = "select * from users where user_id = '$show_review_owner_id'";
                 $run_user_query = mysqli_query($con, $user_query);
                 $user_data = mysqli_fetch_array($run_user_query);
-                
+
                 $show_profile_pic = $user_data['user_profile_picture'];
                 $show_username = $user_data['user_name'];
                 $show_review_body = $show_data['review_body'];
