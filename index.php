@@ -61,7 +61,7 @@
 
 
     <div class="jumbotron jumbotron-fluid text-center bg-light mb-0 jumbo">
-        <img class="logo mb-1" src="images/logo.png" id="logo" alt="logo" height="350" width="700">
+        <img class="navbar-brand mb-1" src="images/logo.png" id="logo" alt="logo" height="350" width="700">
         <p class="tagline ml-5">The foremost source for everything in student welfare</p>
     </div>
     
@@ -77,21 +77,21 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="card text-center" style="border:none; background:transparent;">
-                    <img src="images/aim.jpg" width="100" alt="" style="position: relative;left:35%;"><br>
+                    <img src="images/aim.jpg" width="100" alt="" style="position: relative;left:35%;border-radius:300px;"><br>
                     <span class="card-title"><h2 class="card-title">AIM</h2></span>
                     <div class="card-text" style="font-family:comic sans MS;">This is a Community Of School and College Mongers to Share the Stuffs you Don't Need Anymore OR to Find What you Need Right Now.<br><br></div>
                 </div>
             </div><br>
             <div class="col-sm-4">
                 <div class="card text-center" style="border:none; background:transparent;">
-                        <img src="images/about.png" width="100" alt="" style="position: relative;left:35%;"><br>
+                        <img src="images/about.png" width="100" alt="" style="position: relative;left:35%;border-radius:300px;"><br>
                         <span class="card-title"><h2 class="card-title">ABOUT</h2></span>
                         <div class="card-text" style="font-family:comic sans MS;">This is a Non-Profit Group Of College'ians, We Are Here to Help Students to Fulfil Their Needs Throughout their Academic Years.<br><br> Help this Community to Grow .<br><br><a href="signup.php" class="btn btn-warning" role="button">JOIN US</a></div>    
                 </div>
             </div><br>
             <div class="col-sm-4">
                 <div class="card text-center" style="border:none; background:transparent;">
-                        <img src="images/service.jpg" width="100" alt="" style="position: relative;left:35%;"><br>
+                        <img src="images/service.jpg" width="100" alt="" style="position: relative;left:35%;border-radius:300px;"><br>
                         <span class="card-title"><h2 class="card-title">SERVICES</h2></span>
                         <div class="card-text" style="font-family:comic sans MS;">You Can Exchange, Sell, Buy or Donate Products Here.</div>
                 </div>
@@ -104,7 +104,7 @@
     <h2><b style="font-family: Stencil">Recently Added Products :</b></h2>
     <br><br>
 
-    <form action="" method="POST" style="position:absolute;left:72%;top:187%;">
+    <form action="" method="POST" style="position:relative;left:80%;top:180%;" class="mb-5">
       <select name="sort_products" id="" class="alert alert-success" style="padding:6px;border:2px solid green;border-radius:5px;">
         <option value="" selected disabled>Search products by Tag </option>
         <option value="all">All Products</option>
@@ -135,14 +135,14 @@ if(!isset($_POST['show_products']))
       $show_product_owner_id = $data['product_owner_id'];
   
       echo "
-      <div class='card mb-3' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+      <div class='card mb-3 ' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
       <div class='row no-gutters'>
         <div class='col-md-4'>
           <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
         </div>
         <div class='col-md-8'>
           <div class='card-body text-center'>
-            <h5 class='card-title'><b>$show_product_name</b></h5>
+            <h5 class='card-title' style='color:#000000;'><b>$show_product_name</b></h5>
             <p class='card-text'>
               <div class='badge badge-danger mt-3'><h4>$show_product_mode</h4></div>
               <a href='product_details.php?product_id=$show_product_id' class='nav-link mt-3' style='font-size:20px;font-family:comic sans MS;'>View Product</a>
