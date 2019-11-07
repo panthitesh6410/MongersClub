@@ -71,6 +71,14 @@
         $("body").animate({opacity:'1'}, 2000);
       });
     </script>
+
+      <script>
+        function audio_play()
+        {
+          document.getElementById("play_audio").play();
+        }
+    </script>
+
 </body>
 </html>
 

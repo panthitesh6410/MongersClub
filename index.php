@@ -19,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto ml-5">
         <li class="nav-item active ml-5">
-          <a class="btn btn-warning" href="signup.php">SignUp <span class="sr-only">(current)</span></a>
+          <a class="btn btn-warning" href="signup.php" onclick="audio_play()">SignUp <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="btn btn-primary" href="login.php">Login<span class="sr-only">(current)</span></a>
+          <a class="btn btn-primary" href="login.php" onclick="audio_play()">Login<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="contact.php" onclick="audio_play()">Contact Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="blog.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="index.php">
@@ -373,8 +373,26 @@ if(isset($_POST['show_products']))
                     <div class="footer text-center">MongersClub &copy; copywrite 2019 	<!-- copywrite symbol --></div>
                 </div>
     </footer>
-	
-    
+
+<!--  adding audio -->
+
+    <audio src="audio/myaudio.mp3" id="my_audio"></audio>
+
+    <audio src="audio/ring.mp3" id="play_audio"></audio>
+
+    <script>
+        window.onload= function(){
+          document.getElementById("my_audio").play();
+        }
+    </script>
+
+    <script>
+        function audio_play()
+        {
+          document.getElementById("play_audio").play();
+        }
+    </script>
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
@@ -403,5 +421,7 @@ if(isset($_POST['show_products']))
         });
     
     });
+
 </script>
+
 </html>
