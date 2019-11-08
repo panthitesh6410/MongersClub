@@ -83,7 +83,7 @@
 
     <div class="container text-center">
         <h3  class="mb-5" style="font-family:stencil;"><?php echo $product_title; ?></h3>
-        <img src="product_images/<?php echo $product_img; ?>" alt="" height=500 width=500>
+        <img src="product_images/<?php echo $product_img; ?>" alt="" height=500 width=auto>
         <br><br><br>
         <h3 style="font-family:stencil;">Product Details :</h3>
         <br>

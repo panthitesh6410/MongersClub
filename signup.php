@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto ml-5">
             <li class="nav-item active ml-5">
-              <a class="nav-link btn btn-primary" href="login.php">Login <span class="sr-only">(current)</span></a>
+              <a class="nav-link btn btn-primary" href="login.php" onclick="audio_play()">Login <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active ml-3">
-              <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php" onclick="audio_play()">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active ml-3">
-              <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="contact.php" onclick="audio_play()">Contact Us <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active ml-3">
-              <a class="nav-link" href="blog.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-5 ">
@@ -39,7 +39,7 @@
         </div>
       </nav>
         
-    <div class="container w-50 bg-light " style="margin-top:6%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;">
+    <div class="container  bg-light " style="margin-top:6%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;width:auto;">
         <form action="signup.php" method="POST">
             <div class="text-center"><h3 style="font-family: Stencil">Register to Mongers Club</h3></div>
             <img src="images/logo.png" alt="" width="300" height="auto" style="position:relative;left:30%;">
@@ -96,6 +96,16 @@
         $("body").animate({opacity:'1'}, 2000);
       });
     </script>
+
+
+      <audio src="audio/ring.mp3" id="play_audio"></audio>
+      <script>
+        function audio_play()
+        {
+          document.getElementById("play_audio").play();
+        }
+      </script>
+
 </body>
 </html>
 

@@ -19,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto ml-5">
         <li class="nav-item active ml-5">
-          <a class="nav-link btn btn-warning" href="signup.php">SignUp <span class="sr-only">(current)</span></a>
+          <a class="nav-link btn btn-warning" href="signup.php" onclick="audio_play()">SignUp <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php" onclick="audio_play()">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="contact.php" onclick="audio_play()">Contact Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="blog.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
@@ -41,10 +41,10 @@
               
         
 
-    <div class="container bg-light w-25" style="margin-top:4%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;">
+    <div class="container bg-light" style="margin-top:4%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;width:auto">
         <form action="login.php" method="POST">
             <div class="text-center"><h3 style="font-family: Stencil">Login to Mongers Club</h3></div>
-            <img src="images/logo.png" alt="" width="300" height="auto">
+            <img src="images/logo.png" alt="" width="300" height="auto" style="margin-left:35%;">
             <div class="form-group">
                 <input id="user_id" type="text" name="confirm_user_name" class="form-control text-center" placeholder="enter username" autocomplete="off" required>
             </div>
@@ -72,12 +72,13 @@
       });
     </script>
 
+      <audio src="audio/ring.mp3" id="play_audio"></audio>
       <script>
         function audio_play()
         {
           document.getElementById("play_audio").play();
         }
-    </script>
+      </script>
 
 </body>
 </html>

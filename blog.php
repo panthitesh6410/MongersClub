@@ -19,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto ml-5">
         <li class="nav-item active ml-5">
-          <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php" onclick="audio_play()">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="btn btn-warning" href="signup.php">SignUp<span class="sr-only">(current)</span></a>
+          <a class="btn btn-warning" href="signup.php" onclick="audio_play()">SignUp<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="btn btn-primary" href="login.php">Login<span class="sr-only">(current)</span></a>
+          <a class="btn btn-primary" href="login.php" onclick="audio_play()">Login<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="contact.php" onclick="audio_play()">Contact Us <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
@@ -122,7 +122,16 @@
                     <div class="footer text-center">MongersClub &copy; copywrite 2019 	<!-- copywrite symbol --></div>
                 </div>
     </footer>
-    
+
+
+    <audio src="audio/ring.mp3" id="play_audio"></audio>
+      <script>
+        function audio_play()
+        {
+          document.getElementById("play_audio").play();
+        }
+      </script>
+      
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

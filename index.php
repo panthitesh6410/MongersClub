@@ -61,7 +61,7 @@
 
 
     <div class="jumbotron jumbotron-fluid text-center bg-light mb-0 jumbo">
-        <img class="navbar-brand mb-1" src="images/logo.png" id="logo" alt="logo" height="350" width="700">
+        <img class="navbar-brand mb-1" src="images/logo.png" id="logo" alt="logo">
         <p class="tagline ml-5">The foremost source for everything in student welfare</p>
     </div>
     
