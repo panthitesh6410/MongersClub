@@ -135,7 +135,7 @@ if(!isset($_POST['show_products']))
       $show_product_owner_id = $data['product_owner_id'];
   
       echo "
-      <div class='card mb-3 ' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+      <div class='card' style='max-width: 800px; height:250px;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
       <div class='row no-gutters'>
         <div class='col-md-4'>
           <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
