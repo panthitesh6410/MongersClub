@@ -1,3 +1,7 @@
+<?php
+    $con = mysqli_connect("localhost", "root", "", "minor2");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,14 @@
     <link rel="stylesheet" href="style.css">
     <title>Admin Panel</title>
     <style>
-
+        #users,#products,#reviews{
+            display:none;
+        }
+        h1{
+            position: absolute;
+            left: 40%;
+            top: 50%;
+        }
     </style>
 </head>
 <body>
@@ -16,9 +27,12 @@
     <div class="row" >
         <div class="col-sm-4 text-center alert alert-primary"><a href="#" onclick="view1()">Users</a></div>
         <div class="col-sm-4 text-center alert alert-warning"><a href="#" onclick="view2()">Products</a></div>
-        <div class="col-sm-4 text-center alert alert-dark"><a href="#" onclick="view3()">Reviews</a></div>
+        <div class="col-sm-4 text-center alert alert-secondary"><a href="#" onclick="view3()">Reviews</a></div>
     </div>
-    <div class="row users">
+
+        <h1 id="h1">SELECT AN OPTION</h1>
+
+    <div class="row alert alert-primary" id="users">
         <?php 
             echo "<div class='col-sm-9'>User content</div>
             <div class='col-sm-1'><button class='btn btn-success'>Insert</button></div>
@@ -26,7 +40,7 @@
             <div class='col-sm-1'><button class='btn btn-danger'>Delete</button></div>";
         ?>
     </div>
-    <div class="row products">
+    <div class="row alert alert-warning" id="products">
         <?php 
             echo "<div class='col-sm-9'>Product content</div>
             <div class='col-sm-1'><button class='btn btn-success'>Insert</button></div>
@@ -34,7 +48,7 @@
             <div class='col-sm-1'><button class='btn btn-danger'>Delete</button></div>";
         ?>
     </div>
-    <div class="row reviews">
+    <div class="row alert alert-secondary" id="reviews">
         <?php 
             echo "<div class='col-sm-9'>Review content</div>
             <div class='col-sm-1'><button class='btn btn-success'>Insert</button></div>
@@ -53,20 +67,24 @@
 
     <script>
         function view1(){
-            //alert("users");
-            // display:none for products and reviews here
-            // display:users here.
+            document.getElementById("users").style.display="block";
+            document.getElementById("products").style.display="none";
+            document.getElementById("reviews").style.display="none";
+            document.getElementById("h1").style.display="none";
+            
         }
         function view2(){
-            alert("products");
-            // display:none for users and reviews here
-            // display:products here.
+            document.getElementById("products").style.display="block";
+            document.getElementById("users").style.display="none";
+            document.getElementById("reviews").style.display="none";
+            document.getElementById("h1").style.display="none";
         }
         function view3(){
-            alert("reviews");
-            // display:none for products and users here
-            // display:reviews here.
-        }
+            document.getElementById("reviews").style.display="block";
+            document.getElementById("users").style.display="none";
+            document.getElementById("products").style.display="none";
+            document.getElementById("h1").style.display="none";
+       }
     </script>
 
 </body>
