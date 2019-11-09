@@ -78,9 +78,21 @@
                         <td>$userplace</td>
                         <td>$usergender</td>
                         <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><button class='btn btn-danger'>DELETE</button></td>
+                        <td><form method='POST'><button class='btn btn-danger' name='delete_user'>DELETE</button></form></td>
                     </tr>
                     ";
+                }
+            ?>
+
+            <?php
+                if(isset($_POST['delete_user']))
+                {
+                    $delete_user = "delete from users where user_name = '$username' and user_password = '$userpassword'";
+                    $run_delete_user = mysqli_query($con, $delete_user);
+                    if($run_delete_user)
+                        echo "<script>alert('deleted');</script>";
+                    else    
+                        echo "<script>alert('not deleted');</script>";    
                 }
             ?>
             
@@ -110,9 +122,21 @@
                         <td>$pro_description</td>
                         <td>$pro_time</td>
                         <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><button class='btn btn-danger'>DELETE</button></td>
+                        <td><button class='btn btn-danger' name='delete_product'>DELETE</button></td>
                     </tr>
                     ";
+                }
+            ?>
+
+            <?php
+                if(isset($_POST['delete_product']))
+                {
+                    $delete_product = "delete from products where product_name = '$pro_name' and product_description = '$pro_description'";
+                    $run_delete_product = mysqli_query($con, $delete_product);
+                    if($run_delete_product)
+                        echo "<script>alert('deleted');</script>";
+                    else    
+                        echo "<script>alert('not deleted');</script>";    
                 }
             ?>
         </table>
@@ -135,11 +159,23 @@
                         <td>$review_content</td>
                         <td>$review_time</td>
                         <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><button class='btn btn-danger'>DELETE</button></td>
+                        <td><button class='btn btn-danger' name='delete_review'>DELETE</button></td>
                     </tr>
                     ";
                 }
             ?>
+            <?php
+                if(isset($_POST['delete_review']))
+                {
+                    $delete_review = "delete from reviews where review_body = '$review_content' and review_date = '$review_time'";
+                    $run_delete_review = mysqli_query($con, $delete_review);
+                    if($run_delete_review)
+                        echo "<script>alert('deleted');</script>";
+                    else    
+                        echo "<script>alert('not deleted');</script>";    
+                }
+            ?>
+        </table>
     </div>
 
     <script src="js/jquery.js"></script>
@@ -172,6 +208,10 @@
             document.getElementById("h1").style.display="none";
        }
     </script>
+        
+       <?php
+            
+       ?>
 
 </body>
 </html>
