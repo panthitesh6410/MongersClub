@@ -35,6 +35,7 @@
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
       </form>
+      <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
 
@@ -89,15 +90,15 @@
         <br>
         <div class="row">
           <div class="col-sm-6"><h4>Product Mode</h4></div>
-          <div class="col-sm-6" ><h4 style="color:lightblue;"><?php echo $product_mode; ?></h4></div>
+          <div class="col-sm-6" ><h4 style="color:blue;"><?php echo $product_mode; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Upload Date</h4></div>
-          <div class="col-sm-6 mt-4"><h4 style="color:lightblue;"><?php echo $product_upload_time; ?></h4></div>
+          <div class="col-sm-6 mt-4"><h4 style="color:blue;"><?php echo $product_upload_time; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Product Description</h4></div>
-          <div class="col-sm-6 mt-4"><h4 style="color:lightblue;"><?php echo $product_detail; ?></h4></div>
+          <div class="col-sm-6 mt-4"><h4 style="color:blue;"><?php echo $product_detail; ?></h4></div>
         </div>
         <br><br><br>
         <h3 style="font-family:stencil;">Owner Details :</h3>
@@ -106,27 +107,27 @@
         <br>
         <div class="row mt-5">
           <div class="col-sm-6"><h4>Owner Name</h4></div>
-          <div class="col-sm-6" ><h4 style="color:lightblue;"><?php echo $owner_name; ?></h4></div>
+          <div class="col-sm-6" ><h4 style="color:blue;"><?php echo $owner_name; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Owner E-mail</h4></div>
-          <div class="col-sm-6 mt-4"><h4 style="color:lightblue;"><?php echo $owner_email; ?></h4></div>
+          <div class="col-sm-6 mt-4"><h4 style="color:blue;"><?php echo $owner_email; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Owner Contact No.</h4></div>
-          <div class="col-sm-6 mt-4"><h4 style="color:lightblue;"><?php echo $owner_phone; ?></h4></div>
+          <div class="col-sm-6 mt-4"><h4 style="color:blue;"><?php echo $owner_phone; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Owner Institute</h4></div>
-          <div class="col-sm-6 mt-4"><h4 style="color:lightblue;"><?php echo $owner_institute; ?></h4></div>
+          <div class="col-sm-6 mt-4"><h4 style="color:blue;"><?php echo $owner_institute; ?></h4></div>
         </div>
         <div class="row">
           <div class="col-sm-6 mt-4"><h4>Owner Place</h4></div>
-          <div class="col-sm-6 mt-4 mb-5"><h4 style="color:lightblue;"><?php echo $owner_place; ?></h4></div>
+          <div class="col-sm-6 mt-4 mb-5"><h4 style="color:blue;"><?php echo $owner_place; ?></h4></div>
         </div>
     </div>
 
-
+    <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>

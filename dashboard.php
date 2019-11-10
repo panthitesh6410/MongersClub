@@ -57,6 +57,7 @@
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search_area">
         <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
       </form>
+      <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
             
@@ -127,7 +128,7 @@
     </div>
               
     
-
+    <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     

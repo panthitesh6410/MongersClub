@@ -39,22 +39,7 @@
     </div>
   </nav>
 
-  <script>
-            function change()
-            {
-                if(document.getElementById("mode").value=="Dark-Mode")
-                {
-                    document.getElementById("mode").value="Light-Mode";
-                    document.body.style.backgroundColor = '';
-                }
-                else if(document.getElementById("mode").value=="Light-Mode")
-                {
-                    document.getElementById("mode").value="Dark-Mode";
-                    //document.getElementById("body").style.background-color = 'red';
-                }
-            }
-  </script>
-
+  
 
         <div class="modal  mt-5 text-center" tabindex="-1" role="dialog" style="padding:10px;margin-left:2%;width:20%;">
             <div class="modal-dialog " role="document">
@@ -410,6 +395,8 @@ if(isset($_POST['show_products']))
         }
     </script>
 
+
+    <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     

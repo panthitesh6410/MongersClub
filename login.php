@@ -35,6 +35,7 @@
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_era" aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_button" type="submit">Search</button>
       </form>
+      <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
 
@@ -63,6 +64,7 @@
         <h3 class="mt-5">If You are not a Member <a href="signup.php">Register Yousrself Here</a></h3>
     </div>
 
+    <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
