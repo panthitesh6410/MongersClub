@@ -35,8 +35,25 @@
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
       </form>
+        <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
+
+  <script>
+            function change()
+            {
+                if(document.getElementById("mode").value=="Dark-Mode")
+                {
+                    document.getElementById("mode").value="Light-Mode";
+                    document.body.style.backgroundColor = '';
+                }
+                else if(document.getElementById("mode").value=="Light-Mode")
+                {
+                    document.getElementById("mode").value="Dark-Mode";
+                    //document.getElementById("body").style.background-color = 'red';
+                }
+            }
+  </script>
 
 
         <div class="modal  mt-5 text-center" tabindex="-1" role="dialog" style="padding:10px;margin-left:2%;width:20%;">

@@ -31,9 +31,9 @@
           <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5 ">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_era" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_button" type="submit">Search</button>
       </form>
     </div>
   </nav>

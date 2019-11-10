@@ -54,8 +54,8 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search_area">
+        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
       </form>
     </div>
   </nav>
@@ -120,8 +120,8 @@
                     echo "<script>alert('product removed successfully');</script>";
                   }
                 }
-        
         ?>
+
           
         </div>     
     </div>
