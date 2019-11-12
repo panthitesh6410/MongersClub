@@ -33,13 +33,22 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-5 ">
-            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+            <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_btn" type="submit">Search</button>
           </form>
           <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
         </div>
       </nav>
         
+      <?php
+        if(isset($_POST['search_btn']))
+        {
+            $search_result = $_POST['search_area']; 
+            header("location:search.php?search_result=".$search_result);
+        }
+      ?>
+
+
     <div class="container  bg-light " style="margin-top:6%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;width:auto;">
         <form action="signup.php" method="POST">
             <div class="text-center"><h3 style="font-family: Stencil">Register to Mongers Club</h3></div>

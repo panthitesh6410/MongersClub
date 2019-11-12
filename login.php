@@ -32,14 +32,20 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_era" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_button" type="submit">Search</button>
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_btn" type="submit">Search</button>
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
 
-              
+  <?php
+      if(isset($_POST['search_btn']))
+      {
+          $search_result = $_POST['search_area']; 
+          header("location:search.php?search_result=".$search_result);
+      }
+  ?>
         
 
     <div class="container bg-light" style="margin-top:4%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;width:auto">

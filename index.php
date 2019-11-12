@@ -39,7 +39,13 @@
     </div>
   </nav>
 
-  
+  <?php
+      if(isset($_POST['search_btn']))
+      {
+          $search_result = $_POST['search_area']; 
+          header("location:search.php?search_result=".$search_result);
+      }
+  ?>
 
         <div class="modal  mt-5 text-center" tabindex="-1" role="dialog" style="padding:10px;margin-left:2%;width:20%;">
             <div class="modal-dialog " role="document">
@@ -304,26 +310,6 @@ if(isset($_POST['show_products']))
         }  
     }
 
-
-    
-    // search functionality :
-
-    if(isset($_POST['search_btn']))
-    {
-      $get_query = $_POST['search_area'];
-      $search_query = "select * from products where product_name LIKE '%$get_query%'";
-      $run_search_query = mysqli_query($con, $search_query);
-      $search_data = mysqli_num_rows($run_search_query);
-      if($search_data > 0)
-      { 
-        echo "<script>alert('$search_data related data found')</script>"; 
-        header("location:signup.php"); 
-      }
-      else
-      {
-        echo "<script>alert('No related data found')</script>";
-      }
-    }
 
 ?>
 

@@ -35,13 +35,22 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name='search_area' aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name='search_btn'>Search</button>
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
     
+  <?php
+      if(isset($_POST['search_btn']))
+      {
+          $search_result = $_POST['search_area']; 
+          header("location:search.php?search_result=".$search_result);
+      }
+  ?>
+
+
     <div class="jumbotron jumbotron-fluid text-center bg-light">
         <img class="logo mb-1" id="logo" src="images/logo.png" alt="logo" height="350" width="700">
         <p class="tagline ml-5">The foremost source for everything in student welfare</p>
