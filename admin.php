@@ -61,6 +61,7 @@
                 $run_user_query = mysqli_query($con, $user_query);
                 while($user_data = mysqli_fetch_array($run_user_query))
                 {
+                    $userid = $user_data['user_id'];
                     $username = $user_data['user_name'];
                     $useremail = $user_data['user_email'];
                     $userpassword = $user_data['user_password'];
@@ -77,8 +78,8 @@
                         <td>$userinstitute</td>
                         <td>$userplace</td>
                         <td>$usergender</td>
-                        <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><form method='POST'><button class='btn btn-danger' name='delete_user'>DELETE</button></form></td>
+                        <td><form action='' method='POST'><input type='hidden' name='update_user_id' value='$userid'><button class='btn btn-primary'>UPDATE</button></form></td>
+                        <td><form method='POST'><input type='hidden' name='delete_user_id' value='$userid'><button class='btn btn-danger' name='delete_user'>DELETE</button></form></td>
                     </tr>
                     ";
                 }
@@ -87,12 +88,13 @@
             <?php
                 if(isset($_POST['delete_user']))
                 {
-                    $delete_user = "delete from users where user_name = '$username' and user_password = '$userpassword'";
+                    $u_id = $_POST['delete_user_id'];
+                    $delete_user = "delete from users where user_id = '$u_id'";
                     $run_delete_user = mysqli_query($con, $delete_user);
                     if($run_delete_user)
                         echo "<script>alert('deleted');</script>";
                     else    
-                        echo "<script>alert('not deleted');</script>";    
+                        echo "<script>alert('error deleting');</script>";    
                 }
             ?>
             
@@ -111,6 +113,7 @@
                 $run_product_query = mysqli_query($con, $product_query);
                 while($product_data = mysqli_fetch_array($run_product_query))
                 {
+                    $pro_id = $product_data['product_id'];
                     $pro_name = $product_data['product_name'];
                     $pro_mode = $product_data['product_mode'];
                     $pro_description = $product_data['product_description'];
@@ -121,8 +124,8 @@
                         <td>$pro_mode</td>
                         <td>$pro_description</td>
                         <td>$pro_time</td>
-                        <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><button class='btn btn-danger' name='delete_product'>DELETE</button></td>
+                        <td><form action='' method='POST'><input type='hidden' name='update_product_id' value='$pro_id'><button class='btn btn-primary'>UPDATE</button></form></td>
+                        <td><form action='' method='POST'><input type='hidden' name='delete_product_id' value='$pro_id'><button class='btn btn-danger' name='delete_product'>DELETE</button></form></td>
                     </tr>
                     ";
                 }
@@ -131,12 +134,13 @@
             <?php
                 if(isset($_POST['delete_product']))
                 {
-                    $delete_product = "delete from products where product_name = '$pro_name' and product_description = '$pro_description'";
+                    $p_id = $_POST['delete_product_id'];
+                    $delete_product = "delete from products where product_id = '$p_id'";
                     $run_delete_product = mysqli_query($con, $delete_product);
                     if($run_delete_product)
                         echo "<script>alert('deleted');</script>";
                     else    
-                        echo "<script>alert('not deleted');</script>";    
+                        echo "<script>alert('error deleting');</script>";    
                 }
             ?>
         </table>
@@ -152,14 +156,15 @@
                 $run_review_query = mysqli_query($con, $review_query);
                 while($review_data = mysqli_fetch_array($run_review_query))
                 {
+                    $review_id = $review_data['review_id'];
                     $review_content = $review_data['review_body'];
                     $review_time = $review_data['review_date'];
                     echo "
                     <tr>
                         <td>$review_content</td>
                         <td>$review_time</td>
-                        <td><button class='btn btn-primary'>UPDATE</button></td>
-                        <td><button class='btn btn-danger' name='delete_review'>DELETE</button></td>
+                        <td><form action='' method='POST'><input type='hidden' name='update_review_id' value='$review_id'><button class='btn btn-primary'>UPDATE</button></form></td>
+                        <td><form action='' method='POST'><input type='hidden' name='delete_review_id' value='$review_id'><button class='btn btn-danger' name='delete_review'>DELETE</button></form></td>
                     </tr>
                     ";
                 }
@@ -167,7 +172,8 @@
             <?php
                 if(isset($_POST['delete_review']))
                 {
-                    $delete_review = "delete from reviews where review_body = '$review_content' and review_date = '$review_time'";
+                    $r_id = $_POST['delete_review_id'];
+                    $delete_review = "delete from reviews where review_id = '$r_id'";
                     $run_delete_review = mysqli_query($con, $delete_review);
                     if($run_delete_review)
                         echo "<script>alert('deleted');</script>";
