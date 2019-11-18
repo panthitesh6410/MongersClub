@@ -78,7 +78,7 @@
                         <td>$userinstitute</td>
                         <td>$userplace</td>
                         <td>$usergender</td>
-                        <td><form action='' method='POST'><input type='hidden' name='update_user_id' value='$userid'><button class='btn btn-primary'>UPDATE</button></form></td>
+                        <td><input type='hidden' name='update_user_id' value='$userid'><button class='btn btn-primary' data-toggle='modal' data-target='#updation_user'>UPDATE</button></td>
                         <td><form method='POST'><input type='hidden' name='delete_user_id' value='$userid'><button class='btn btn-danger' name='delete_user'>DELETE</button></form></td>
                     </tr>
                     ";
@@ -199,7 +199,6 @@
             document.getElementById("products").style.display="none";
             document.getElementById("reviews").style.display="none";
             document.getElementById("h1").style.display="none";
-            
         }
         function view2(){
             document.getElementById("products").style.display="block";
@@ -215,9 +214,196 @@
        }
     </script>
         
-       <?php
-            
-       ?>
 
+    <!-- PopUp Modal for user UPDATE functionality : -->
+
+    <div id="updation_user" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row mt-5 ml-5">
+                        <div class="col-sm-6">
+                            <input type="text" name="edit_username" class="form-control" placeholder="Update Username"><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_username">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                        <div class="col-sm-6">
+                            <input type="text" name="edit_email" class="form-control " placeholder="Update Email"><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_email">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                        <div class="col-sm-6">
+                            <input type="password" name="edit_password" class="form-control " placeholder="Update Password"><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_password">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                        <div class="col-sm-6">
+                            <input type="phone" name="edit_phone" class="form-control " placeholder="Update Phone no."><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_phone">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                        <div class="col-sm-6">
+                            <input type="text" name="edit_place" class="form-control" placeholder="Update Place"><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_place">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                        <div class="col-sm-6">
+                            <input type="text" name="edit_institute" class="form-control" placeholder="Update Institute"><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" name="save_institute">Save</button>                        
+                        </div>
+                    </div>
+                    <div class="row ml-5">
+                    <div class="col-sm-6">
+                        <input type="file" name="profile_picture" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                            <button class="btn btn-primary" name="insert_profile_picture">insert profile picture</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+<!-- to update user info. -->
+    <?php
+        if(isset($_POST['save_username']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_username = $_POST['edit_username'];
+            $query1 = "update users set user_name = '$new_username' where user_id = '$u_id'";
+            $run_query1 = mysqli_query($con, $query1);
+            if($run_query1)
+            {
+                echo "<script>alert('Username updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['save_email']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_email = $_POST['edit_email'];
+            $query2 = "update users set user_email = '$new_email' where user_id = '$u_id'";
+            $run_query2 = mysqli_query($con, $query2);
+            if($run_query2)
+            {
+                echo "<script>alert('Email updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['save_password']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_password = $_POST['edit_password'];
+            $query3 = "update users set user_password = '$new_password' where user_id = '$u_id'";
+            $run_query3 = mysqli_query($con, $query3);
+            if($run_query3)
+            {
+                echo "<script>alert('Password updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['save_phone']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_phone = $_POST['edit_phone'];
+            $query4 = "update users set user_phone = '$new_username' where user_id = '$u_id'";
+            $run_query4 = mysqli_query($con, $query4);
+            if($run_query4)
+            {
+                echo "<script>alert('Phone number updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['save_place']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_place = $_POST['edit_place'];
+            $query5 = "update users set user_place = '$new_place' where user_id = '$u_id'";
+            $run_query5 = mysqli_query($con, $query5);
+            if($run_query5)
+            {
+                echo "<script>alert('Residance place  updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['save_institute']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_institute = $_POST['edit_institute'];
+            $query6 = "update users set user_institute = '$new_institute' where user_id = '$u_id'";
+            $run_query6 = mysqli_query($con, $query6);
+            if($run_query6)
+            {
+                echo "<script>alert('Institute updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('Unable to update');</script>";
+            }
+        }
+        if(isset($_POST['insert_profile_picture']))
+        {
+            $u_id = $_POST['update_user_id'];
+            $new_profile_picture = $_FILES['profile_picture']['name'];
+            $temp_loc = $_FILES['profile_picture']['tmp_name'];
+            $image_store = "user_images/".$new_profile_picture;
+            move_uploaded_file($temp_loc, $image_store);
+            $query7 = "update users set user_profile_picture = '$new_profile_picture' where user_id = '$u_id'";
+            $run_query7 = mysqli_query($con, $query7);
+            if($run_query7)
+            {
+                echo "<script>alert('Profile picture updated successfully');</script>";
+            }
+            else
+            {
+                echo "<script>alert('unable to update');</script>";
+            }
+        }
+    ?>
+       
 </body>
 </html>

@@ -84,7 +84,6 @@
       $owner_phone = $owner_data['user_phone'];
       $owner_institute = $owner_data['user_institute'];
       $owner_place = $owner_data['user_place'];
-
     ?>
 
 

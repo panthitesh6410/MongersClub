@@ -1,4 +1,3 @@
-
             function change()
             {
                 if(document.getElementById("mode").value=="Dark-Mode")
