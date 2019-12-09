@@ -52,6 +52,9 @@
         <li class="nav-item active ml-3">
           <a class="nav-link" href="review.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active ml-3">
+          <a class="nav-link" href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search_area">
@@ -82,61 +85,41 @@
                 <a href="insert_product.php" class="nav-link mt-1"><H5>Share a product</h5></a>
                 <a href="review.php" class="nav-link mt-1"><H5>Write a Review</h5></a>
             </div>
-        <div class="col-sm-8 text-center">
-          <h3 class="alert alert-dark mb-5">Products You Share</h3>
-            
-        <?php
-                $show_pro = "select * from products where product_owner_id = '$userID' order by product_id desc";
-                $run_show_pro = mysqli_query($con, $show_pro);
-                
-                while($pro_data = mysqli_fetch_array($run_show_pro))
-                {
-                  $show_pro_id = $pro_data['product_id'];
-                  $show_pro_name = $pro_data['product_name'];
-                  $show_pro_mode = $pro_data['product_mode'];
-                  $show_pro_date = $pro_data['product_time'];
-                  $show_pro_img = $pro_data['product_image'];
-
-                  echo "
-                  <div class='card mb-5' style='max-width: 700px; height:250px;position: relative;left:20%;box-shadow: 10px 10px 10px 10px #ddd;'>
-                  <div class='row no-gutters'>
-                    <div class='col-md-4'>
-                      <img src='product_images/$show_pro_img' class='card-img' alt='...' height='250'>
+            <div class="col-sm-6">
+                <h3 class="text-center alert alert-dark">ALL CHATS</h3>
+                <div class="card mb-3 alert alert-warning">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
+                        </div>
+                        <div class="col-sm-4">
+                            <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
+                        </div>
                     </div>
-                    <div class='col-md-8'>
-                      <div class='card-body text-center'>
-                        <h5 class='card-title'><b>$show_pro_name</b></h5>
-                        <p class='card-text'>
-                          <div class='badge badge-warning'>$show_pro_mode</div>
-                          <a href='#' class='nav-link mt-3'>View Product</a>
-                        </p>
-                        <p class='card-text'><small class='text-muted'>Uploaded on $show_pro_date</small></p>
-                        <form action='' method='POST'><button class='btn btn-danger' name='delete_product'>Delete Product</button>
-                      </div>
+                </div>
+                <div class="card mb-3 alert alert-warning">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
+                        </div>
+                        <div class="col-sm-4">
+                            <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
+                        </div>
                     </div>
-                  </div>
+                </div>
+                <div class="card mb-3 alert alert-warning">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
+                        </div>
+                        <div class="col-sm-4">
+                            <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
-                  ";
-
-                }
-        
-                if(isset($_POST['delete_product']))
-                {
-                  $del_query = "delete from products where product_id = '$show_pro_id'";
-                  $run_del_query = mysqli_query($con, $del_query);
-                  if($run_del_query)
-                  {
-                    echo "<script>alert('product removed successfully');</script>";
-                  }
-                }
-        ?>
-
-          
-        </div>     
+        </div>
     </div>
-
-    <a href="chat_page.php"><img src="images/chat.png" class="fixed-bottom mb-3 ml-3" alt="chat-icon" width=100></a>
-    
     <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
