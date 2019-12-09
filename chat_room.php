@@ -55,6 +55,9 @@
         <li class="nav-item active ml-3">
           <a class="nav-link" href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active ml-3">
+          <a class="nav-link" href="chat_page.php">All Chats<span class="sr-only">(current)</span></a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 ">
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search_area">
@@ -85,44 +88,7 @@
                 <a href="insert_product.php" class="nav-link mt-1"><H5>Share a product</h5></a>
                 <a href="review.php" class="nav-link mt-1"><H5>Write a Review</h5></a>
             </div>
-            <div class="col-sm-6">
-                <h3 class="text-center alert alert-dark">ALL CHATS</h3>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
+            <div class="col-sm-8">
             </div>
         </div>
     </div>
