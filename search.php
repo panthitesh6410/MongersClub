@@ -27,7 +27,7 @@
             $show_product_owner_id = $search_data['product_owner_id'];
 
             echo "
-            <div class='card' style='max-width: 800px; height:250px;position: relative;left:25%;box-shadow: 10px 10px 10px 10px #ddd;margin-top:3%;'>
+            <div class='card' style='max-width: 800px; height:auto;position: relative;left:25%;box-shadow: 10px 10px 10px 10px #ddd;margin-top:3%;'>
             <div class='row no-gutters'>
                 <div class='col-md-4'>
                 <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>

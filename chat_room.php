@@ -88,7 +88,72 @@
                 <a href="insert_product.php" class="nav-link mt-1"><H5>Share a product</h5></a>
                 <a href="review.php" class="nav-link mt-1"><H5>Write a Review</h5></a>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-7" style="border:3px solid #888888;">
+                <div class="row">
+                    <!-- reciever's name -->
+
+<?php
+  // $_SESSION['user'] = 
+  // 
+  $USER = $_GET['user'];
+  // echo"<script>alert($USER)</script>";
+  $recevier_query = "select * from users where user_id ='$USER'";
+  $run_recevier_query = mysqli_query($con, $recevier_query);
+  $recevier_data = mysqli_fetch_array($run_recevier_query);
+  $recevier_id = $recevier_data['user_id'];
+  $recevier_name = $recevier_data['user_name'];
+  $recevier_profile_pic = $recevier_data['user_profile_picture'];
+?>
+                    
+                    <nav class="container navbar bg-secondary" style="color:#fff;">
+                      <img src="user_images/<?php echo $recevier_profile_pic; ?>" class="ml-3" alt="" height=50 width=50 style="border-radius:200px;">
+                      <h3 class="text-center mr-5"><?php echo $recevier_name; ?></h3>
+                    </nav>
+                </div>
+                <div class="row">
+                    <!-- send input and btn -->
+                    <form class="form-inline mt-3 mb-3" action="chat_room.php" m ethod="POST" style="position:relative;left:30%;">
+                        <input type="text" class="form-control" name="msg_content">
+                        <input type="submit" name="send_btn" class="btn btn-warning ml-2" value="SEND">
+                    </form>
+                </div>
+
+<?php
+
+      if(isset($_POST['send_btn']))
+      {
+          $chat_content = $_POST['msg_content'];
+          $chat_time = date("Y/m/d h:i:s:a");
+          $chat_sender = $userID;
+          $chat_recevier = $recevier_id;
+          
+          $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_recevier_id) vallues ($chat_content, $chat_time, $chat_sender, $chat_recevier)";
+          $run_send_query = mysqli_query($con, $send_query);
+          if($run_send_query)
+          {
+            echo "<script>alert('chat send successfully')</script>";
+          }
+          else
+          {
+            echo "<script>alert('error in connection')</script>";
+          }
+      }
+
+?>
+
+                <div class="row">
+                    <!-- message contents in descending order of date or id -->
+                    <?php
+                        $display_chat = "select * from chats where chat_sender_id=$userID AND chat_recevier_id=$recevier_id";
+                        $run_display_chat = mysqli_query($con, $display_chat);
+                        while($display = mysqli_fetch_array($run_display_chat))
+                        {
+                          $chat = $display['chat_body'];
+                          echo "<p class='ml-5 mt-3'>$chat</p>";
+                        }
+
+                    ?>
+                </div>
             </div>
         </div>
     </div>

@@ -87,42 +87,32 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="text-center alert alert-dark">ALL CHATS</h3>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
-                <a href="chat_room.php">
-                  <div class="card mb-3 alert alert-warning">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <img src="user_images/user.png" height=100 alt="" class="ml-3" style="border-radius:100px;">
-                          </div>
-                          <div class="col-sm-4">
-                              <h4 class="text-center mt-4" style="font-family:verdana;">User Name</h4>
-                          </div>
-                      </div>
-                  </div>
-                </a>
+                
+                <?php
+                    $show_users = "select * from users where user_id!=$userID";
+                    $run_show_users = mysqli_query($con, $show_users);
+                    while($user_result = mysqli_fetch_array($run_show_users))
+                    {
+                        $user_id = $user_result['user_id'];
+                        $user_name = $user_result['user_name'];
+                        $user_profile_pic = $user_result['user_profile_picture'];
+                        // $_SESSION['user'] = $user_id;
+                        echo "
+                        <a href='chat_room.php?user=$user_id'>
+                        <div class='card mb-3 alert alert-warning'>
+                            <div class='row'>
+                                <div class='col-sm-4'>
+                                    <img src='user_images/$user_profile_pic' height=100 width=100 alt='' class='ml-3' style='border-radius:1000px;'>
+                                </div>
+                                <div class='col-sm-4'>
+                                    <h4 class='text-center mt-4' style='font-family:verdana;''>$user_name</h4>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                        ";
+                    }
+                ?>
             </div>
         </div>
     </div>
