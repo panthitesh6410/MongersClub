@@ -81,7 +81,7 @@
           </div>
 
     
-    <div class="container next">
+    <div id="intro" onscroll="scroll_effect()" class="container next">
         <div class="row">
             <div class="col-sm-4">
                 <div class="card text-center" style="border:none; background:transparent;">
@@ -107,6 +107,13 @@
         </div>
     </div>
 <br><br><br>
+
+<script>
+  function scroll_effect()
+  {
+    alert("scroll")
+  }
+</script>
 
 <div class="container">
     <h2><b style="font-family: Stencil">Recently Added Products :</b></h2>
@@ -381,7 +388,6 @@ if(isset($_POST['show_products']))
         }
     </script>
 
-
     <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -412,6 +418,12 @@ if(isset($_POST['show_products']))
     
     });
 
+</script>
+
+<script>
+  $("#intro").scroll(function () { 
+      alert();
+  });
 </script>
 
 </html>

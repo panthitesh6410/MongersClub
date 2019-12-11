@@ -111,7 +111,7 @@
                 <div class="row">
                     <!-- send input and btn -->
                     <form class="form-inline mt-3 mb-3" action="chat_room.php" m ethod="POST" style="position:relative;left:30%;">
-                        <input type="text" class="form-control" name="msg_content">
+                        <input type="text" class="form-control" name="msg_content" placeholder="send a message">
                         <input type="submit" name="send_btn" class="btn btn-warning ml-2" value="SEND">
                     </form>
                 </div>
@@ -129,7 +129,7 @@
           $run_send_query = mysqli_query($con, $send_query);
           if($run_send_query)
           {
-            echo "<script>alert('chat send successfully')</script>";
+            echo "<script>alert('message sent successfully')</script>";
           }
           else
           {
@@ -138,7 +138,6 @@
       }
 
 ?>
-
                 <div class="row">
                     <!-- message contents in descending order of date or id -->
                     <?php
@@ -149,13 +148,12 @@
                           $chat = $display['chat_body'];
                           if($userID == $recevier_id)
                           {
-                            echo "<h6 class='ml-5 mt-3 alert alert-danger'>$chat</h6>";
+                            echo "<h5 class='row ml-5 mt-3 alert alert-danger'>$chat</h5>";
                           }
                           else{
-                            echo "<h6 class='ml-5 mt-3 alert alert-success'>$chat</h6>";
+                            echo "<h5 class='row ml-5 mt-3 alert alert-success'>$chat</h5>";
                           }
                         }
-
                     ?>
                 </div>
             </div>
