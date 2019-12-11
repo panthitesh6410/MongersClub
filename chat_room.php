@@ -93,8 +93,6 @@
                     <!-- reciever's name -->
 
 <?php
-  // $_SESSION['user'] = 
-  // 
   $USER = $_GET['user'];
   // echo"<script>alert($USER)</script>";
   $recevier_query = "select * from users where user_id ='$USER'";
@@ -127,7 +125,7 @@
           $chat_sender = $userID;
           $chat_recevier = $recevier_id;
           
-          $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_recevier_id) vallues ($chat_content, $chat_time, $chat_sender, $chat_recevier)";
+          $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_receiver_id) values ('$chat_content', '$chat_time', '$chat_sender', '$chat_recevier')";
           $run_send_query = mysqli_query($con, $send_query);
           if($run_send_query)
           {
@@ -144,12 +142,18 @@
                 <div class="row">
                     <!-- message contents in descending order of date or id -->
                     <?php
-                        $display_chat = "select * from chats where chat_sender_id=$userID AND chat_recevier_id=$recevier_id";
+                        $display_chat = "select * from chats where (chat_sender_id='$userID' and chat_receiver_id='$recevier_id') or (chat_sender_id='$recevier_id' and chat_receiver_id='$userID') order by chat_time desc";
                         $run_display_chat = mysqli_query($con, $display_chat);
                         while($display = mysqli_fetch_array($run_display_chat))
                         {
                           $chat = $display['chat_body'];
-                          echo "<p class='ml-5 mt-3'>$chat</p>";
+                          if($userID == $recevier_id)
+                          {
+                            echo "<h6 class='ml-5 mt-3 alert alert-danger'>$chat</h6>";
+                          }
+                          else{
+                            echo "<h6 class='ml-5 mt-3 alert alert-success'>$chat</h6>";
+                          }
                         }
 
                     ?>

@@ -53,7 +53,7 @@
             <div class="text-center"><h3 style="font-family: Stencil">Login to Mongers Club</h3></div>
             <img src="images/logo.png" alt="" width="300" height="auto" style="margin-left:35%;">
             <div class="form-group">
-                <input id="user_id" type="text" name="confirm_user_name" class="form-control text-center" placeholder="enter username" autocomplete="off" required>
+                <input id="user_id" type="text" name="confirm_user_name" class="form-control text-center" placeholder="enter username" autocomplete="off" required selected>
             </div>
             <br>
             <div class="form-group">
