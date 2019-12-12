@@ -86,7 +86,7 @@
                 <a href="view_account_details.php" class="nav-link"><h5>View Account Details</h5></a>
                 <a href="edit_Account_details.php" class="nav-link mt-1"><H5>Edit Account Details</h5></a>
                 <a href="insert_product.php" class="nav-link mt-1"><H5>Share a product</h5></a>
-                <a href="review.php" class="nav-link mt-1"><H5>Write a Review</h5></a>
+                <a href="review.php" class="nav-link mt-1"><h5>Write a Review</h5></a>
             </div>
             <div class="col-sm-7" style="border:3px solid #888888;">
                 <div class="row">
@@ -99,25 +99,26 @@
   $run_recevier_query = mysqli_query($con, $recevier_query);
   $recevier_data = mysqli_fetch_array($run_recevier_query);
   $recevier_id = $recevier_data['user_id'];
+  // echo "<script>alert($recevier_id)</script>";
   $recevier_name = $recevier_data['user_name'];
   $recevier_profile_pic = $recevier_data['user_profile_picture'];
 ?>
                     
                     <nav class="container navbar bg-secondary" style="color:#fff;">
                       <img src="user_images/<?php echo $recevier_profile_pic; ?>" class="ml-3" alt="" height=50 width=50 style="border-radius:200px;">
-                      <h3 class="text-center mr-5"><?php echo $recevier_name; ?></h3>
+                      <h3 class="text-center mr-5" style="font-family:verdana;"><?php echo $recevier_name; ?></h3>
                     </nav>
                 </div>
                 <div class="row">
                     <!-- send input and btn -->
-                    <form class="form-inline mt-3 mb-3" action="chat_room.php" m ethod="POST" style="position:relative;left:30%;">
-                        <input type="text" class="form-control" name="msg_content" placeholder="send a message">
+                    <form class="form-inline mt-3 mb-3" action="chat_room.php" method="POST" style="position:relative;left:30%;">
+                        <input type="text" class="form-control" name="msg_content" placeholder="write a message">
                         <input type="submit" name="send_btn" class="btn btn-warning ml-2" value="SEND">
                     </form>
                 </div>
 
 <?php
-
+  // echo "<script>alert($recevier_id)</script>";
       if(isset($_POST['send_btn']))
       {
           $chat_content = $_POST['msg_content'];
@@ -145,14 +146,15 @@
                         $run_display_chat = mysqli_query($con, $display_chat);
                         while($display = mysqli_fetch_array($run_display_chat))
                         {
+                          $time = $display['chat_time'];
                           $chat = $display['chat_body'];
                           $uid = $display['chat_sender_id'];
                           if($userID != $uid)
                           {
-                            echo "<h5 class='row mt-3 alert alert-danger'>$chat</h5>";
+                            echo "<h5 class='row mt-3 alert alert-danger ml-1 mr-1' style='font-family:verdana;'>$chat <small class='badge badge-danger ml-5'>$time</small> </h5>";
                           }
                           else{
-                            echo "<h5 class='row ml-3 mr-3 mt-3 alert alert-success'>$chat</h5>";
+                            echo "<h5 class='row alert alert-success ml-1 mr-1' style='font-family:verdana;'>$chat <small class='badge badge-success ml-5'>$time</small> </h5>";
                           }
                         }
                     ?>

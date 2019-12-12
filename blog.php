@@ -31,7 +31,7 @@
           <a class="nav-link" href="contact.php" onclick="audio_play()">Contact Us <span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5 ">
+      <form class="form-inline my-2 my-lg-0 mr-5" action="" method="POST">
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name='search_area'>
         <button class="btn btn-success my-2 my-sm-0 mr-5" name='search_btn' type="submit">Search</button>
       </form>
