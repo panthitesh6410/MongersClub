@@ -138,20 +138,21 @@
       }
 
 ?>
-                <div class="row">
+                <div class="">
                     <!-- message contents in descending order of date or id -->
                     <?php
-                        $display_chat = "select * from chats where (chat_sender_id='$userID' and chat_receiver_id='$recevier_id') or (chat_sender_id='$recevier_id' and chat_receiver_id='$userID') order by chat_time desc";
+                        $display_chat = "select * from chats where (chat_sender_id='$userID' and chat_receiver_id='$recevier_id') or (chat_sender_id='$recevier_id' and chat_receiver_id='$userID')";
                         $run_display_chat = mysqli_query($con, $display_chat);
                         while($display = mysqli_fetch_array($run_display_chat))
                         {
                           $chat = $display['chat_body'];
-                          if($userID == $recevier_id)
+                          $uid = $display['chat_sender_id'];
+                          if($userID != $uid)
                           {
-                            echo "<h5 class='row ml-5 mt-3 alert alert-danger'>$chat</h5>";
+                            echo "<h5 class='row mt-3 alert alert-danger'>$chat</h5>";
                           }
                           else{
-                            echo "<h5 class='row ml-5 mt-3 alert alert-success'>$chat</h5>";
+                            echo "<h5 class='row ml-3 mr-3 mt-3 alert alert-success'>$chat</h5>";
                           }
                         }
                     ?>

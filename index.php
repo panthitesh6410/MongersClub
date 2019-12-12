@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
@@ -111,7 +112,7 @@
 <script>
   function scroll_effect()
   {
-    alert("scroll")
+    alert("scroll action");
   }
 </script>
 
@@ -119,8 +120,8 @@
     <h2><b style="font-family: Stencil">Recently Added Products :</b></h2>
     <br><br>
 
-    <form action="" method="POST" style="position:relative;left:80%;top:180%;" class="mb-5">
-      <select name="sort_products" id="" class="alert alert-success" style="padding:6px;border:2px solid green;border-radius:5px;">
+    <form action="" method="POST" style="position:relative;left:15%;top:180%;" class="mb-5">
+      <select name="sort_products" id="sort" class="alert alert-success" style="padding:6px;border:2px solid green;border-radius:5px;">
         <option value="" selected disabled>Search products by Tag </option>
         <option value="all">All Products</option>
         <option value="sale">for Sale</option>
@@ -150,7 +151,7 @@ if(!isset($_POST['show_products']))
       $show_product_owner_id = $data['product_owner_id'];
   
       echo "
-      <div class='card mb-2' style='max-width: 800px; height:auto;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
+      <div class='card mb-2 ' style='max-width: 800px; height:auto;position: relative;left:15%;box-shadow: 10px 10px 10px 10px #ddd;'>
       <div class='row no-gutters'>
         <div class='col-md-4'>
           <img src='product_images/$show_product_image' class='card-img' alt='' style='height:250px;'>
