@@ -111,22 +111,22 @@
                 </div>
                 <div class="row">
                     <!-- send input and btn -->
-                    <form class="form-inline mt-3 mb-3" action="chat_room.php" method="POST" style="position:relative;left:30%;">
+                    <form class="form-inline mt-3 mb-3" action="" method="POST" style="position:relative;left:30%;">
                         <input type="text" class="form-control" name="msg_content" placeholder="write a message">
                         <input type="submit" name="send_btn" class="btn btn-warning ml-2" value="SEND">
                     </form>
                 </div>
 
 <?php
-  // echo "<script>alert($recevier_id)</script>";
+  // echo "<script>alert($USER)</script>";
       if(isset($_POST['send_btn']))
       {
           $chat_content = $_POST['msg_content'];
           $chat_time = date("Y/m/d h:i:s:a");
           $chat_sender = $userID;
-          $chat_recevier = $recevier_id;
+          // $chat_recevier = $recevier_id;
           
-          $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_receiver_id) values ('$chat_content', '$chat_time', '$chat_sender', '$chat_recevier')";
+          $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_receiver_id) values ('$chat_content', '$chat_time', '$chat_sender', '$USER')";
           $run_send_query = mysqli_query($con, $send_query);
           if($run_send_query)
           {

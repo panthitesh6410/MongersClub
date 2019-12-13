@@ -97,6 +97,7 @@
                         $user_name = $user_result['user_name'];
                         $user_profile_pic = $user_result['user_profile_picture'];
                         // $_SESSION['user'] = $user_id;
+                        // $_SESSION['user'] = $user_id;
                         echo "
                         <a href='chat_room.php?user=$user_id'>
                         <div class='card mb-3 alert alert-warning'>
