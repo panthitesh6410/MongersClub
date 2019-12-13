@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2019 at 12:33 PM
+-- Generation Time: Dec 13, 2019 at 04:35 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `minor2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chats`
+--
+
+CREATE TABLE `chats` (
+  `chat_id` int(200) NOT NULL,
+  `chat_body` varchar(200) NOT NULL,
+  `chat_time` date NOT NULL,
+  `chat_sender_id` int(100) NOT NULL,
+  `chat_receiver_id` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chats`
+--
+
+INSERT INTO `chats` (`chat_id`, `chat_body`, `chat_time`, `chat_sender_id`, `chat_receiver_id`) VALUES
+(1, 'hello user', '2019-12-10', 7, 6),
+(2, 'my name is hitesh', '2019-12-11', 7, 6),
+(3, 'hey!', '2019-12-12', 6, 7),
+(4, 'how are you', '2019-12-12', 6, 0),
+(5, ' iam fine', '2019-12-12', 7, 0),
+(6, 'see you', '2019-12-12', 7, 0);
 
 -- --------------------------------------------------------
 
@@ -43,10 +69,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_mode`, `product_image`, `product_description`, `product_time`, `product_owner_id`) VALUES
-(3, 'Paper Clip', 'Donate', 'product1.jpg', 'I want to donate this paper clip .\r\nif anyone wants it please contact me ASAP.\r\nI bought this clip 5 months earlier. \r\nIt is still  in very good Condition', '23-09-19', 3),
 (4, 'Marker Pen', 'Sale', 'product4.jfif', 'This is black marker Pen. \r\niw bought this pen recently and now i dont want it .\r\nI want to exchange this marker pen in exchange of a yellow high lighter.\r\nif anyone has a yellow highligher pen then please contact me .\r\nThank You', '23-09-19', 3),
 (5, 'Paper Pins', 'Donate', 'product2.jpg', 'This is a packet full of Paper Pins.\r\nThis box contains almost 100 pieces of paper pins.\r\nI want to donate this box .IF anyone wants this box, then please contact me ASAP.', '23-09-19', 3),
-(6, 'R.D Sharma (Mathematics)', 'Exchange', 'product3.jfif', 'This is R.D sharma 5th edition mathematics book for class 10th students . i want to exchange this book in exchange of a adventureous novel.', '02-10-19', 3);
+(6, 'R.D Sharma (Mathematics)', 'Exchange', 'product3.jfif', 'This is R.D sharma 5th edition mathematics book for class 10th students . i want to exchange this book in exchange of a adventureous novel.', '02-10-19', 3),
+(7, 'paper clip', 'Exchange', 'product1.jpg', 'this is a paper clip to hold paper in a table .\r\ni want to exchange this paper clip with a marker pen.\r\n ', '15-11-19', 7);
 
 -- --------------------------------------------------------
 
@@ -92,13 +118,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_password`, `user_phone`, `user_institute`, `user_place`, `user_gender`, `user_profile_picture`) VALUES
-(3, 'hitesh pant', 'panthitesh6410@gmail.com', 'password', '8989430080', 'H.C.E.T', 'jabalpur', 'male', 'IMG_20170702_142643.jpg'),
-(5, 'user', 'user@gmail.com', 'user', '1234567890', 'U.I.T', 'user chowk', 'male', 'user.png'),
-(6, 'amit', 'kuraria.amit@gmail.com', 'hcet123', '8989125425', 'hcet', 'vijay nagar', 'male', 'user.png');
+(6, 'user', 'user@gmail.com', 'user', '1234567890', 'UIT', 'usernagar', 'male', 'user.png'),
+(7, 'hitesh pant', 'panthitesh6410@gmail.com', 'password', '8989430080', 'H.C.E.T.', 'Jabalpur', 'male', 'IMG_20170702_142643.jpg'),
+(8, 'rashi', 'rashi@gmail.com', 'rashi', '4541313213', '', '', 'female', 'user.png');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chats`
+--
+ALTER TABLE `chats`
+  ADD PRIMARY KEY (`chat_id`);
 
 --
 -- Indexes for table `products`
@@ -123,10 +155,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `chats`
+--
+ALTER TABLE `chats`
+  MODIFY `chat_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -138,7 +176,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
