@@ -103,7 +103,7 @@
   $recevier_name = $recevier_data['user_name'];
   $recevier_profile_pic = $recevier_data['user_profile_picture'];
 ?>
-                    
+
                     <nav class="container navbar bg-secondary" style="color:#fff;">
                       <img src="user_images/<?php echo $recevier_profile_pic; ?>" class="ml-3" alt="" height=50 width=50 style="border-radius:200px;">
                       <h3 class="text-center mr-5" style="font-family:verdana;"><?php echo $recevier_name; ?></h3>
@@ -128,21 +128,21 @@
           
           $send_query = "insert into chats (chat_body, chat_time, chat_sender_id, chat_receiver_id) values ('$chat_content', '$chat_time', '$chat_sender', '$USER')";
           $run_send_query = mysqli_query($con, $send_query);
-          if($run_send_query)
-          {
-            echo "<script>alert('message sent successfully')</script>";
-          }
-          else
-          {
-            echo "<script>alert('error in connection')</script>";
-          }
+          // if($run_send_query)
+          // {
+          //   echo "<script>alert('message sent successfully')</script>";
+          // }
+          // else
+          // {
+          //   echo "<script>alert('error in connection')</script>";
+          // }
       }
 
 ?>
-                <div class="">
+                <div class="people">
                     <!-- message contents in descending order of date or id -->
                     <?php
-                        $display_chat = "select * from chats where (chat_sender_id='$userID' and chat_receiver_id='$recevier_id') or (chat_sender_id='$recevier_id' and chat_receiver_id='$userID')";
+                        $display_chat = "select * from chats where (chat_sender_id='$userID' and chat_receiver_id='$recevier_id') or (chat_sender_id='$recevier_id' and chat_receiver_id='$userID') ORDER BY chat_id DESC";
                         $run_display_chat = mysqli_query($con, $display_chat);
                         while($display = mysqli_fetch_array($run_display_chat))
                         {
@@ -170,6 +170,20 @@
       $(document).ready(function()
       {
         $("body").animate({opacity:'1'}, 2000);
+
+// ajax part :
+
+        fetch_user();
+        function fetch_user()
+        {
+          $.ajax({
+            url:"chat_room.php",
+            method:"POST",
+            success:function(data){
+              
+            }
+          })
+        }
       });
     </script>
 </body>
