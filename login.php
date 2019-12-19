@@ -33,20 +33,13 @@
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="">
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" name="search_btn" type="submit">Search</button>
+        
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
 
-  <?php
-      if(isset($_POST['search_btn']))
-      {
-          $search_result = $_POST['search_area']; 
-          header("location:search.php?search_result=".$search_result);
-      }
-  ?>
-        
+  <div id="show_search" class="alert alert-secondary" style="font-family:verdana;width:300px;position:absolute;left:72%;top:7%;"></div>      
 
     <div class="container bg-light" style="margin-top:4%;border-radius:10px;padding:20px;box-shadow: 15px 15px 20px 20px #ddd;width:auto">
         <form action="login.php" method="POST">
@@ -87,6 +80,28 @@
           document.getElementById("play_audio").play();
         }
       </script>
+
+<script>
+    $("#search_field").keyup(function(){
+        var query = $(this).val();
+         if(query != '')
+         {
+           $.ajax({
+             url: "search.php",
+             method: "POST",
+             data: {query:query},
+             success: function(data){
+               $("#show_search").html(data);
+             }
+           });
+         }
+         else
+        {
+          $("#show_search").html('');
+        }
+    })
+  </script>
+
 
 </body>
 </html>

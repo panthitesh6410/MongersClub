@@ -44,7 +44,6 @@
   <script>
     $("#search_field").keyup(function(){
         var query = $(this).val();
-        // alert(query)
          if(query != '')
          {
            $.ajax({
