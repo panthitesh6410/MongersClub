@@ -1,3 +1,27 @@
+
+<?php
+  $con = mysqli_connect("localhost", "root", "", "minor2");
+  error_reporting(0);
+  $confirm_user_name = $_POST['confirm_user_name'];
+  $confirm_user_password = $_POST['confirm_user_password'];
+  if(isset($_POST['login_submit']))
+  {
+    $query = "select * from users where user_name = '$confirm_user_name' and user_password = '$confirm_user_password'";
+    $run_query = mysqli_query($con, $query);
+    $row = mysqli_num_rows($run_query);
+    if($row == 1)
+    {
+      session_start();
+      $_SESSION['username'] = $confirm_user_name;
+      header("location:dashboard.php?username=".$confirm_user_name);
+    }
+    else{
+      echo "<h2 class='alert alert-danger mt-5' style='text-align:center;'><b>Login Failed</b></h2>";
+      echo "<script>alert('Login Failed');</script>";
+    }
+  } 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,26 +129,3 @@
 
 </body>
 </html>
-
-<?php
-  $con = mysqli_connect("localhost", "root", "", "minor2");
-  error_reporting(0);
-  $confirm_user_name = $_POST['confirm_user_name'];
-  $confirm_user_password = $_POST['confirm_user_password'];
-  if(isset($_POST['login_submit']))
-  {
-    $query = "select * from users where user_name = '$confirm_user_name' and user_password = '$confirm_user_password'";
-    $run_query = mysqli_query($con, $query);
-    $row = mysqli_num_rows($run_query);
-    if($row == 1)
-    {
-      session_start();
-      $_SESSION['username'] = $confirm_user_name;
-      header("location:dashboard.php?username=".$confirm_user_name);
-    }
-    else{
-      echo "<h2 class='alert alert-danger mt-5' style='text-align:center;'><b>Login Failed</b></h2>";
-      echo "<script>alert('Login Failed');</script>";
-    }
-  } 
-?>
