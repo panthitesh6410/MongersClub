@@ -59,6 +59,9 @@
         {
           $("#show_search").html('');
         }
+    });
+    $(document).on('click', 'li', function(){
+        $("#show_search").val($(this).text())
     })
   </script>
   

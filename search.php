@@ -10,7 +10,7 @@
         {
             while($row = mysqli_fetch_array($run_query))
             {
-                $output .= '<li style="border:2px solid #fff;padding:5px;background-color:#888888;">'.$row["product_name"].'</li>';
+                $output .= '<li style="border:2px solid #fff;padding:5px;background-color:#888888;color:#fff;font-weight:bold;">'.$row["product_name"].'</li>';
             }
         }
         else{

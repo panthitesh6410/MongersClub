@@ -72,8 +72,8 @@
           <a class="nav-link" href="dashboard.php">Back<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5" action="" method="POST">
-        <input class="form-control mr-sm-2 " type="search" name='search_area' placeholder="Search" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0 mr-5" method="POST">
+        <input class="form-control mr-sm-2 " id="search_field" autocomplete="off"  type="search" name='search_area' placeholder="Search" aria-label="Search">
         
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">

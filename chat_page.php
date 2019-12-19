@@ -56,8 +56,8 @@
           <a class="nav-link" href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5" action="" method="POST">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="search_area">
+      <form class="form-inline my-2 my-lg-0 mr-5" method="POST">
+        <input class="form-control mr-sm-2 "  id="search_field" autocomplete="off" type="search" placeholder="Search" aria-label="Search" name="search_area">
         
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
