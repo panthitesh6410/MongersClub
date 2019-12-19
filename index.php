@@ -61,7 +61,7 @@
         }
     });
     $(document).on('click', 'li', function(){
-        $("#show_search").val($(this).text())
+        $("#search_field").val($(this).text())
     })
   </script>
   
