@@ -7,7 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-  
+    <script src="js/dark-mode.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -32,22 +34,35 @@
           <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="index.php">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
+      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" >
+        <input class="form-control mr-sm-2 " id="search_field" type="search" placeholder="Search" name="search_area" aria-label="Search" autocomplete="off">
       </form>
         <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
     </div>
   </nav>
-
-  <?php
-      if(isset($_POST['search_btn']))
-      {
-          $search_result = $_POST['search_area']; 
-          header("location:search.php?search_result=".$search_result);
-      }
-  ?>
-
+              <div id="show_search" class="alert alert-secondary" style="font-family:verdana;width:300px;position:absolute;left:72%;top:7%;"></div>
+  <script>
+    $("#search_field").keyup(function(){
+        var query = $(this).val();
+        // alert(query)
+         if(query != '')
+         {
+           $.ajax({
+             url: "search.php",
+             method: "POST",
+             data: {query:query},
+             success: function(data){
+               $("#show_search").html(data);
+             }
+           });
+         }
+         else
+        {
+          $("#show_search").html('');
+        }
+    })
+  </script>
+  
         <div class="modal  mt-5 text-center" tabindex="-1" role="dialog" style="padding:10px;margin-left:2%;width:20%;">
             <div class="modal-dialog " role="document">
                 <div class="modal-content">
@@ -389,9 +404,7 @@ if(isset($_POST['show_products']))
         }
     </script>
 
-    <script src="js/dark-mode.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    
     
 </body>
 
@@ -417,6 +430,7 @@ if(isset($_POST['show_products']))
         
         });
     
+        
     });
 
 </script>
