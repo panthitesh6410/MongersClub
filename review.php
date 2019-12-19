@@ -66,7 +66,7 @@
           <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="contact_session.php">Contact Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
           <a class="nav-link" href="dashboard.php">Back<span class="sr-only">(current)</span></a>
@@ -151,7 +151,7 @@
         </div>     
     </div>
             
-    <a href="chat_page.php"><img src="images/chat.png" class="fixed-bottom mb-3 ml-3" alt="chat-icon" width=100></a>
+    <a href="chat_page.php"><img src="images/msg_icon.jpg" class="fixed-bottom mb-3 ml-3" alt="chat-icon" width=100></a>
     
     <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>

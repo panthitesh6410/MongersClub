@@ -136,7 +136,7 @@
         </div>     
     </div>
               
-    <a href="chat_page.php"><img src="images/chat.png" class="fixed-bottom mb-3 ml-3" alt="chat-icon" width=100></a>
+    <a href="chat_page.php"><img src="images/msg_icon.jpg" class="fixed-bottom mb-3 ml-3" alt="chat-icon" width=100></a>
     
     <script src="js/dark-mode.js"></script>
     <script src="js/jquery.js"></script>
