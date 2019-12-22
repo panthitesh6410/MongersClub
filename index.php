@@ -32,8 +32,10 @@
           <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST" action="index.php">
-        <input class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0 mr-5 " method="POST">
+        <input id="search_field" class="form-control mr-sm-2 " type="search" placeholder="Search" name="search_area" aria-label="Search">
+        <br>
+        <div id="show_search" class="mr-sm-2 "></div>
         <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name="search_btn">Search</button>
       </form>
         <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
@@ -425,6 +427,32 @@ if(isset($_POST['show_products']))
   $("#intro").scroll(function () { 
       alert();
   });
+</script>
+
+
+<!-- AJAX -->
+
+<script>
+    $("#search_field").keyup(function(){
+        var query = $("#search_field").val()
+        if(query != '')
+        {
+            $.ajax({
+            url: "ajax_search.php",
+            method: "POST",
+            data: {query: query},
+            success: function(data){
+              $("#show_search").html(data)
+            }
+          })
+        }
+        else{
+          $("#show_search").html('')
+        }
+        $(document).on('click', 'p', function(){
+				    $("#search_field").val($(this).text())
+			  })
+    })
 </script>
 
 </html>
