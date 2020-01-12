@@ -20,15 +20,31 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto ml-5">
+      <ul class="navbar-nav mr-auto ml-5">      
+        <?php
+          error_reporting(0);
+          session_start();
+          $userprofile = $_SESSION['username'];
+          if($userprofile)
+          {
+              echo '
+              <a class="nav-link" role="button" href="dashboard.php">DASHBOARD <span class="sr-only">(current)</span></a>
+              <a class="btn btn-danger ml-3" role="button" href="logout.php">Logout <span class="sr-only">(current)</span></a>          
+              ';
+          }
+          else{
+            echo '
+            <li class="nav-item active ml-5">
+            <a class="btn btn-warning" href="signup.php" onclick="audio_play()">SignUp <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="btn btn-primary" href="login.php" onclick="audio_play()">Login<span class="sr-only">(current)</span></a>
+          </li>
+            ';
+          }
+        ?>
         <li class="nav-item active ml-5">
           <a class="nav-link" href="index.php" onclick="audio_play()">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active ml-3">
-          <a class="btn btn-warning" href="signup.php" onclick="audio_play()">SignUp<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active ml-3">
-          <a class="btn btn-primary" href="login.php" onclick="audio_play()">Login<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
           <a class="nav-link" href="blog.php" onclick="audio_play()">Rate Us/Blog<span class="sr-only">(current)</span></a>
@@ -39,6 +55,7 @@
         <button class="btn btn-success my-2 my-sm-0 mr-5" type="submit" name='search_btn'>Search</button>
       </form>
       <input id="mode" type="button" class="btn btn-light" value="Dark-Mode" onclick="change()">
+      
     </div>
   </nav>
     

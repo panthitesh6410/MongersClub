@@ -36,3 +36,7 @@ iframe{
 	height:600px;
 	opacity:.8;
 }
+#show_search p:hover{
+    color:black;
+    background-color: #ddd;
+}

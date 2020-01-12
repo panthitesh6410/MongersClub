@@ -47,10 +47,10 @@
           <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="contact_session.php">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="contact.php">Contact Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ml-3">
-          <a class="nav-link" href="review.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="blog.php">Rate Us/Blog<span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-5" action="" method="POST">
